@@ -62,7 +62,7 @@ function Get-AzureRmVMStatus {
       }
 }
 
-$subs = Get-AzureRmSubscription
+$subs = Get-AzureRmSubscription -WarningAction SilentlyContinue
 
 $subs | % {Select-AzureRmSubscription -SubscriptionId $_.SubscriptionId
 $VMs = Get-AzureRmResourceGroup | % {Get-AzureRmVMStatus $_.ResourceGroupName}
